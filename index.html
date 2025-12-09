@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>400 Bad Request</title>
+  <link rel="stylesheet"
+    href="https://www.brown.edu/sites/default/files/css/css_IPwxziaB1E23nKB-4OAZuA9O_sT6CM0JU5_Lr8g4Wy4.css?delta=1&language=en&theme=brown&include=eJx1zEEOwyAMBMAPofAky4ATaA22bFDT31fKpZfkuju76E4T2nhRnmIxu28sgBkL9ZYdqnRSPCjgPRy5igG38fYHUhXoVBajZPIZUFshcOILPWwUZ4WJ512tJntjgl3y8nB9xoMlIQdFw8NQq8diS5G3f7KtoStx80ol-Ncn9ZjQ6QeOiWYF">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --padding: clamp(24px, 3vw, 32px);
+      --gap: clamp(16px, 3vw, 24px);
+    }
+
+    html {
+      background: var(--color-lgray);
+      color: var(--color-tgray);
+      font-family: var(--font-circular);
+      font-size: 16px;
+      line-height: 1.25;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--color-white);
+      border-radius: 8px;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--gap) * 2);
+      margin: 4% auto;
+      max-width: 1370px;
+      padding: calc(var(--padding) * 2);
+      width: 94%;
+    }
+
+    code {
+      background: var(--color-white);
+      border: 1px solid var(--color-xlbeige);
+      border-radius: 4px;
+      color: var(--color-red);
+      font-family: monospace;
+      font-size: 0.8em;
+      margin: 0 2px;
+      padding: 2px 6px;
+      word-break: break-word;
+    }
+
+    /* Header */
+    header {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: 980px) {
+      header {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--gap);
+      }
+    }
+
+    header a {
+      grid-column: span 1;
+      padding: var(--padding);
+    }
+
+    header a img {
+      width: clamp(200px, 20vw, 100%);
+      display: block;
+      height: auto;
+    }
+
+    header section {
+      display: flex;
+      flex-direction: column;
+      padding: var(--padding);
+    }
+
+    @media (min-width: 980px) {
+      header section {
+        grid-column: span 2;
+      }
+    }
+
+    header section h1 {
+      color: var(--color-red);
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1;
+      margin: 0;
+    }
+
+    header section h2 {
+      color: var(--color-tgray);
+      display: block;
+      font-size: clamp(56px, 4.5vw, 88px);
+      line-height: 1;
+      margin: 0; 
+    }
+
+    header section p {
+      font-size: clamp(20px, 3vw, 24px);
+      margin: var(--gap) 0 0 0;
+    }
+
+    /* Main Content */
+    main {
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    }
+
+    main article {
+      background: var(--color-lgray);
+      background: color-mix(in srgb, var(--color-lgray) 40%, white);
+      border: 1px solid var(--color-xlbeige);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--gap) / 1);
+      padding: var(--padding);
+      transition: 0.25s ease;
+    }
+
+    main article:hover {
+      background: var(--color-white);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    main article h2 {
+      align-items: center;
+      display: flex;
+      gap: calc(var(--gap) / 2);
+    }
+
+    main article h2 img {
+      height: auto;
+      max-width: 40px;
+    }
+
+    main article ol {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      gap: calc(var(--gap) / 3);
+      list-style-position: inside;
+      padding-left: 0;
+    }
+
+    main article a {
+      background: var(--color-red);
+      border-radius: 4px;
+      color: var(--color-white);
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: auto;
+      padding: 16px 8px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    main article a:hover {
+      background: var(--color-brown);
+      color: var(--color-white);
+    }
+
+    /* Footer Styles */
+    footer {
+      border: 1px solid var(--color-lgray);
+      border-radius: 8px;
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    }
+
+    footer section {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--gap) / 2);
+    }
+
+    footer section,
+    footer ul {
+      padding: var(--padding);
+    }
+
+    footer ul {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--gap) / 2);
+      list-style: none;
+    }
+
+    footer a {
+      color: var(--color-red);
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    footer a:hover {
+      color: var(--color-brown);
+      text-decoration: underline;
+    }
+
+    footer > p {
+      background: var(--color-lgray);
+      border-top: 1px solid var(--color-lgray);
+      grid-column: 1 / -1;
+      padding: calc(var(--padding) / 2);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="https://www.brown.edu">
+      <img src="img/brown_logo.png" alt="Brown University Logo">
+    </a>
+    <section>
+      <h1>HTTP Status 400: Bad Request</h1><h2>Whoops! Let’s Fix It</h2>
+      <p>This error occurs when the browser request cannot be processed due to invalid syntax or corrupted cookies. Follow the instructions below to clear <code>brown.edu</code> cookies and resolve the issue.</p>
+    </section>
+  </header>
+  <main>
+    <article>
+      <h2>
+        <img src="img/chrome.png" alt="Google Chrome browser logo">Google Chrome
+      </h2>
+      <p>Steps for clearing cookies from brown.edu in Google Chrome to resolve the browser error 400 Bad Request.</p>
+      <ol>
+        <li>Enter <code>chrome://settings/content/all</code> in the browser address bar</li>
+        <li>Search for <code>brown.edu</code></li>
+        <li>Click the trash can icon to delete all of the cookies and site data for that site.</li>
+        <li>Click Delete to confirm cookie removal</li>
+      </ol>
+      <a href="https://scribehow.com/viewer/Chrome_Delete_brownedu_Cookies__gAoz4-ELRtaDmMmdVb2P9A?referrer=knowledge-page"
+        target="_blank" rel="noopener noreferrer">Learn to Clear Google Chrome Cookies</a>
+    </article>
+    <article>
+      <h2>
+        <img src="img/safari.png" alt="Safari browser logo">Safari (Mac)
+      </h2>
+      <p>Steps for clearing cookies from brown.edu in Safari to resolve the browser error 400 Bad Request.</p>
+      <ol>
+        <li>Click Safari from the menu</li>
+        <li>Click Settings</li>
+        <li>Select the Privacy tab and click Manage Website Data...</li>
+        <li>Search for <code>brown.edu</code> and select <code>brown.edu</code> from the list</li>
+        <li>Click Remove</li>
+        <li>Click Done</li>
+      </ol>
+      <a href="https://scribehow.com/viewer/Safari_Delete_brownedu_Cookies__-GPdF7DtTs-xlZlQN9RFbQ?referrer=knowledge-page"
+        target="_blank" rel="noopener noreferrer">Learn to Clear Safari Cookies</a>
+    </article>
+    <article>
+      <h2>
+        <img src="img/firefox.png" alt="Firefox browser logo">Firefox
+      </h2>
+      <p>Steps for clearing cookies from brown.edu in Firefox to resolve the browser error 400 Bad Request.</p>
+      <ol>
+        <li>Enter <code>about:preferences#privacy</code> in the browser address bar</li>
+        <li>Scroll down and find the Cookies and Site Data section and click the Manage Data button</li>
+        <li>Search for <code>brown.edu</code> and select <code>brown.edu</code> from the list</li>
+        <li>Click Remove Selected</li>
+        <li>Click Save Changes</li>
+        <li>Click Remove to confirm cookie removal</li>
+      </ol>
+      <a href="https://scribehow.com/viewer/Firefox_Delete_brownedu_Cookies__9oNBpXd3RtK_U9liR8y43A?referrer=knowledge-page"
+        target="_blank" rel="noopener noreferrer">Learn to Clear Firefox Cookies</a>
+    </article>
+  </main>
+  <footer>
+    <section>
+      <h3>IT Service Center /<br> Alumni Help Desk</h3>
+      <p>If clearing your cookies does not resolve the issue, close your browser completely and reopen it. If the problem persists, contact the IT Service Center for assistance.</p>
+    </section>
+    <ul>
+      <li><a href="tel:+14018634357">(401) 863-4357</a></li>
+      <li><a href="mailto:help@brown.edu">help@brown.edu</a></li>
+      <li><a href="https://www.brown.edu/campus-life/support/campus-center/associated-facilities-1/page-robinson-hall">5th floor Page Robinson Building</a></li>
+    </ul>
+    <ul>
+      <li><a href="https://helpchat.brown.edu/">Chat with Us</a></li>
+      <li><a href="http://brown.edu/go/helpticket">Submit a Ticket</a></li>
+      <li><a href="http://brown.edu/go/kb">Search Our Knowledgebase</a></li>
+    </ul>
+    <p>© Brown University</p>
+  </footer>
+</body>
+
+</html>
