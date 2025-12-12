@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>400 Bad Request</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.brown.edu/themes/custom/brown/static/favicon-16x16.png">
   <link rel="stylesheet"
-    href="https://www.brown.edu/sites/default/files/css/css_IPwxziaB1E23nKB-4OAZuA9O_sT6CM0JU5_Lr8g4Wy4.css?delta=1&language=en&theme=brown&include=eJx1zEEOwyAMBMAPofAky4ATaA22bFDT31fKpZfkuju76E4T2nhRnmIxu28sgBkL9ZYdqnRSPCjgPRy5igG38fYHUhXoVBajZPIZUFshcOILPWwUZ4WJ512tJntjgl3y8nB9xoMlIQdFw8NQq8diS5G3f7KtoStx80ol-Ncn9ZjQ6QeOiWYF">
+    href="https://www.brown.edu/sites/default/files/css/css_IPwxziaB1E23nKB-4OAZuA9O_sT6CM0JU5_Lr8g4Wy4.css?delta=1&language=en&theme=brown&include=eJx1zEEOwyAMBMAPofAky4ATaA22bFDT31fKpZfkuju76E4T2nhRnmIxu28sgBkL9ZYdqnRSPCjgPRy5igG38fYHUhXoVBajZPIZUFshcOILPWwUZ4WJ512tJntjgl3y8nB9xoMlIQdFw8NQq8diS5G3f7KtoStx80ol-Ncn9ZjQ6QeOiWYF" />
   <style>
     *,
     *::before,
@@ -40,7 +41,7 @@
       gap: calc(var(--gap) * 2);
       margin: 4% auto;
       max-width: 1370px;
-      padding: calc(var(--padding) * 2);
+      padding: clamp(24px, 5vw, calc(var(--padding) * 2));
       width: 94%;
     }
 
@@ -60,6 +61,7 @@
     header {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
+      gap: var(--gap);
     }
 
     @media (min-width: 980px) {
@@ -71,11 +73,11 @@
 
     header a {
       grid-column: span 1;
-      padding: var(--padding);
+      padding: 0 var(--padding);
     }
 
     header a img {
-      width: clamp(200px, 20vw, 100%);
+      width: clamp(180px, 20vw, 100%);
       display: block;
       height: auto;
     }
@@ -83,7 +85,7 @@
     header section {
       display: flex;
       flex-direction: column;
-      padding: var(--padding);
+      padding: 0 var(--padding);
     }
 
     @media (min-width: 980px) {
@@ -102,9 +104,9 @@
     header section h2 {
       color: var(--color-tgray);
       display: block;
-      font-size: clamp(56px, 4.5vw, 88px);
+      font-size: clamp(48px, 4.5vw, 88px);
       line-height: 1;
-      margin: 0; 
+      margin: 0;
     }
 
     header section p {
@@ -126,9 +128,21 @@
       border-radius: 8px;
       display: flex;
       flex-direction: column;
-      gap: calc(var(--gap) / 1);
+      align-items: flex-start;
+      gap: var(--gap);
       padding: var(--padding);
       transition: 0.25s ease;
+    }
+
+    @media (min-width: 740px) {
+      main article {
+        flex-direction: row;
+      }
+    }
+
+    main article img {
+      width: 80px;
+      height: auto;
     }
 
     main article:hover {
@@ -137,6 +151,11 @@
       transform: translateY(-2px);
     }
 
+    main article section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
     main article a {
       background: var(--color-red);
@@ -144,29 +163,30 @@
       color: var(--color-white);
       font-size: 12px;
       font-weight: bold;
-      margin-top: auto;
+      margin-top: 16px;
       padding: 16px 24px;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
       transition: 0.25s ease;
-      width: max-content;
+      max-width: max-content;
     }
 
     main article a:hover {
       background: var(--color-brown);
       color: var(--color-white);
     }
-    main article a:active{
+
+    main article a:active {
       background: var(--color-black);
-    } 
+    }
 
     /* Footer Styles */
     footer {
       border: 1px solid var(--color-lgray);
       border-radius: 8px;
       display: grid;
-      gap: var(--gap);
+      gap: clamp(0, 3vw, var(--gap));
       grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     }
 
@@ -187,7 +207,8 @@
       gap: calc(var(--gap) / 2);
       list-style: none;
     }
-    footer a[href^=tel],
+
+    footer a[href^="tel"],
     footer a {
       color: var(--color-red);
       text-decoration: none;
@@ -198,11 +219,12 @@
       color: var(--color-brown);
       text-decoration: underline;
     }
+
     footer a:active {
-      color: var(--color-black); 
+      color: var(--color-black);
     }
 
-    footer > p {
+    footer>p {
       background: var(--color-lgray);
       border-top: 1px solid var(--color-lgray);
       grid-column: 1 / -1;
@@ -215,33 +237,53 @@
 <body>
   <header>
     <a href="https://www.brown.edu">
-      <img src="img/brown_logo.png" alt="Brown University Logo">
+      <img src="img/brown_logo.png" alt="Brown University Logo" />
     </a>
     <section>
-      <h1>HTTP Status 400: Bad Request</h1><h2>Whoops! Let’s Fix It</h2>
-      <p>This error occurs when the browser request cannot be processed due to invalid syntax or corrupted cookies. You will need to clear <code>brown.edu</code> cookies and resolve the issue.</p>
+      <h1>HTTP Status 400: Bad Request</h1>
+      <h2>Whoops! Let’s Fix It</h2>
+      <p>
+        This error occurs when the browser request cannot be processed due to
+        invalid syntax or corrupted cookies. You will need to clear
+        <code>brown.edu</code> cookies and resolve the issue.
+      </p>
     </section>
   </header>
   <main>
     <article>
-      <h3>
-        Learn to Refresh Your Browser by Clearing Cache and Cookies
-        </h3>
-      <p>Browsers sometimes display outdated content because they are using stored data. Clearing your cache and cookies removes these old files and ensures that pages load the most current version. Follow the step-by-step instructions below for both desktop and mobile browsers to quickly refresh your browsing experience.</p>
-  
-      <a href="https://ithelp.brown.edu/kb/articles/clear-cookies-and-cache">View Instructions to Clear Cache & Cookies</a>
+      <img src="img/refresh.svg" alt="Refresh icon indicating browser cache and cookies need to be cleared" />
+      <section>
+        <h3>Learn to Refresh Your Browser by Clearing Cache and Cookies</h3>
+        <p>
+          Browsers sometimes display outdated content because they are using
+          stored data. Clearing your cache and cookies removes these old files
+          and ensures that pages load the most current version. Follow the
+          step-by-step instructions below for both desktop and mobile browsers
+          to quickly refresh your browsing experience.
+        </p>
+        <a href="https://ithelp.brown.edu/kb/articles/clear-cookies-and-cache">View Instructions to Clear Cache & Cookies</a>
+      </section>
     </article>
-
   </main>
   <footer>
     <section>
-      <h4>Need More Help?<br> Contact the IT Service Center.</h4>
-      <p>If clearing your cookies does not resolve the issue, close your browser completely and reopen it. If the problem persists, contact the IT Service Center for assistance.</p>
+      <h3>Need More Help? Contact the IT Service Center.</h3>
+      <p>
+        If clearing your cookies does not resolve the issue, close your
+        browser completely and reopen it. If the problem persists, contact the
+        IT Service Center for assistance.
+      </p>
     </section>
     <ul>
-      <li><a href="tel:+14018634357">(401) 863-4357</a></li>
-      <li><a href="mailto:help@brown.edu">help@brown.edu</a></li>
-      <li><a href="https://www.brown.edu/campus-life/support/campus-center/associated-facilities-1/page-robinson-hall">5th floor Page Robinson Building</a></li>
+      <li>
+        <a href="tel:+14018634357" aria-label="Call IT Service Center at (401) 863-4357">(401) 863-4357</a>
+      </li>
+      <li>
+        <a href="mailto:help@brown.edu" aria-label="Email IT Service Center at help@brown.edu">help@brown.edu</a>
+      </li>
+      <li>
+        <a href="https://www.brown.edu/campus-life/support/campus-center/associated-facilities-1/page-robinson-hall">5th floor Page Robinson Building</a>
+      </li>
     </ul>
     <ul>
       <li><a href="https://helpchat.brown.edu/">Chat with Us</a></li>
